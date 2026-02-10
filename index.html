@@ -140,6 +140,8 @@ allow="autoplay; encrypted-media">
   <button onclick="yesClicked()">Yes 😌💗</button>
   <button id="noBtn" onclick="noClicked()">No 🙄</button>
   <p id="funny"></p>
+  <button onclick="playMusic()">Play Music 🎵</button>
+
 </div>
 
 <!-- PAGE 2 -->
@@ -207,7 +209,12 @@ function noClicked() {
   btn.style.top = Math.random() * 150 - 75 + "px";
 }
 
-function yesClicked() {
+function yesClicked()function playMusic() {
+  let yt = document.getElementById("ytmusic").contentWindow;
+  yt.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+}
+
+{
   document.getElementById("page1").classList.remove("active");
   document.getElementById("page2").classList.add("active");
 
@@ -240,3 +247,4 @@ for (let i = 0; i < 25; i++) {
 
 </body>
 </html>
+
