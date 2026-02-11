@@ -208,11 +208,23 @@ function noClicked() {
   btn.style.left = Math.random() * 250 - 125 + "px";
   btn.style.top = Math.random() * 150 - 75 + "px";
 }
+function yesClicked() {
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
 
-function yesClicked()function playMusic() {
+  // play YouTube music
   let yt = document.getElementById("ytmusic").contentWindow;
   yt.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+
+  // confetti
+  confetti({
+    particleCount: 200,
+    spread: 120,
+    origin: { y: 0.6 }
+  });
 }
+
+  
 
 {
   document.getElementById("page1").classList.remove("active");
@@ -247,6 +259,7 @@ for (let i = 0; i < 25; i++) {
 
 </body>
 </html>
+
 
 
 
